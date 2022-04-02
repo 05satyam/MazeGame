@@ -1,6 +1,7 @@
 package MazeTypeInterface;
 
 import MazeConcreteObjects.Maze;
+import MazeConcreteObjects.Room;
 import MazeObjectsInterface.MazeRoomInterface;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface MazeTypeFactoryInterface {
 
 
-    List<MazeRoomInterface> makeRoom(int numberOfRooms);
+    List<Room> makeRoom(int numberOfRooms);
 
 
     default Maze makeMaze(int numberOfRooms, MazeTypeFactoryInterface mazeTypeFactoryobj) {

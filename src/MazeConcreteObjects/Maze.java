@@ -8,7 +8,7 @@ import java.util.List;
 public class Maze {
 
     List<List<Integer>> mazeMatrix;
-    List<MazeRoomInterface> rooms;
+    List<Room> rooms;
 
     public Maze makeMaze(int numberOfRooms) {
         Maze mazeObj = new Maze();
@@ -17,11 +17,11 @@ public class Maze {
     }
 
 
-    public void setRooms(List<MazeRoomInterface> rooms) {
+    public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
 
-    public List<MazeRoomInterface> getRooms() {
+    public List<Room> getRooms() {
         return rooms;
     }
 

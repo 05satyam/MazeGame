@@ -9,26 +9,15 @@ import java.util.List;
  * */
 public class Room {
 
+    List<Door> _door;
 
-    List<Room> rooms;
+    public Room() {}
 
-    public Room() {
+    public List<Door> get_door() {
+        return _door;
     }
 
-    public List<Room> createNumberOfRoomsInMaze(int numberOfRooms) {
-        List<Room> _rLst = new ArrayList<>();
-        for (int i = 0; i < numberOfRooms * numberOfRooms; i++) {
-            Room _r = new Room();
-            _rLst.add(_r);
-        }
-        return _rLst;
-    }
-
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
+    public void set_door(List<Door> _door) {
+        this._door = _door;
     }
 }

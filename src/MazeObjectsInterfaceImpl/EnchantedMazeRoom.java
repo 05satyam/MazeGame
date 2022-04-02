@@ -1,17 +1,18 @@
 package MazeObjectsInterfaceImpl;
 
+import MazeConcreteObjects.Room;
 import MazeObjectsInterface.MazeRoomInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnchantedMazeRoom implements MazeRoomInterface {
+public class EnchantedMazeRoom extends Room implements MazeRoomInterface {
 
     @Override
-    public List<MazeRoomInterface> createNumberOfRoomsInMaze(int numberOfRooms) {
-        List<MazeRoomInterface> _rLst = new ArrayList<>();
+    public List<Room> createNumberOfRoomsInMaze(int numberOfRooms) {
+        List<Room> _rLst = new ArrayList<>();
         for (int i = 0; i < numberOfRooms * numberOfRooms; i++) {
-            EnchantedMazeRoom _r = new EnchantedMazeRoom();
+            Room _r = new EnchantedMazeRoom();
             _rLst.add(_r);
         }
         return _rLst;

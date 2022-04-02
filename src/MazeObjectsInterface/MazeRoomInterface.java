@@ -1,10 +1,11 @@
 package MazeObjectsInterface;
 
+import MazeConcreteObjects.Room;
 import MazeMapeSiteBaseInterface.MapSiteBaseInterfaceClass;
 
 import java.util.List;
 
 public interface MazeRoomInterface extends MapSiteBaseInterfaceClass {
 
-    public List<MazeRoomInterface> createNumberOfRoomsInMaze(int numberOfRooms);
+    public List<Room> createNumberOfRoomsInMaze(int numberOfRooms);
 }
