@@ -1,9 +1,9 @@
 package MazeDoorLayoutEnums;
 
 public enum MazeDoorLayoutsEnum {
-    DoorsAll4Directions("NORTH", "SOUTH", "EAST", "WEST"),
-    DoorsOddRowEvenRoom(null, null, "WEST", "EAST"),
-    DoorsEvenRowOddRoom("NORTH", "SOUTH", null, null);
+    LayoutOne_DoorsAll4Directions("NORTH", "SOUTH", "EAST", "WEST"),
+    LayoutTwo_DoorsOddRowEvenRoom(null, null, "WEST", "EAST"),
+    LayoutTwo_DoorsEvenRowOddRoom("NORTH", "SOUTH", null, null);
 
     private String north;
     private String south;

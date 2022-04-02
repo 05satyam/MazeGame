@@ -1,17 +1,19 @@
 package MazeTypeInterface;
 
 import MazeConcreteObjects.Maze;
-import MazeObjectsInterface.MazeDoorInterface;
 import MazeObjectsInterface.MazeRoomInterface;
+
+import java.util.List;
 
 public interface MazeTypeFactoryInterface {
 
 
-    MazeRoomInterface makeRoom();
+    List<MazeRoomInterface> makeRoom(int numberOfRooms);
 
-    MazeDoorInterface makeDoor() ;
 
     default Maze makeMaze(int numberOfRooms, MazeTypeFactoryInterface mazeTypeFactoryobj) {
         return  new Maze().makeMaze(numberOfRooms);
     };
+
+
 }

@@ -1,17 +1,16 @@
 package MazeTypeInterfaceImpl;
 
-import MazeObjectsInterface.MazeDoorInterface;
 import MazeObjectsInterface.MazeRoomInterface;
+import MazeObjectsInterfaceImpl.MagicMazeRoom;
 import MazeTypeInterface.MazeTypeFactoryInterface;
 
+import java.util.List;
+
 public class MagicMazeFactory implements MazeTypeFactoryInterface {
-    @Override
-    public MazeRoomInterface makeRoom() {
-        return null;
-    }
 
     @Override
-    public MazeDoorInterface makeDoor() {
-        return null;
+    public List<MazeRoomInterface> makeRoom(int numberOfRooms) {
+        return new MagicMazeRoom().createNumberOfRoomsInMaze(numberOfRooms);
     }
+
 }
