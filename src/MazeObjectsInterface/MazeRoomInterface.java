@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MazeRoomInterface extends MapSiteBaseInterfaceClass {
 
-    public List<Room> createNumberOfRoomsInMaze(int numberOfRooms);
+    public List<Room> createNumberOfRoomsInMaze(int numberOfRooms, int doorLayout,  MazeDoorInterface mazeDoorInterfaceObj);
 }

@@ -32,4 +32,12 @@ public class Maze {
     public List<List<Integer>> getMaze() {
         return mazeMatrix;
     }
+
+    @Override
+    public String toString() {
+        return "Maze{" +
+                "mazeMatrix=" + mazeMatrix +
+                ", rooms=" + rooms +
+                '}';
+    }
 }
