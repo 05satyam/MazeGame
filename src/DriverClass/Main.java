@@ -1,5 +1,6 @@
 package DriverClass;
 
+import DisplayMaze.DisplayTheMaze;
 import MazeConcreteObjects.Door;
 import MazeConcreteObjects.Maze;
 import MazeConcreteObjects.Room;
@@ -9,11 +10,16 @@ import MazeTypeInterfaceImpl.MagicMazeFactory;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
-
+    /**
+     *
+     * @param arg
+     * @throws InterruptedException
+     *
+     * it is the driver main method which is the entry point of the maze game
+     */
     public static void main(String[] arg) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         String choiceToContinue = "N";
@@ -21,15 +27,16 @@ public class Main {
             System.out.flush();
             System.out.println("---------WELCOME TO THE MAZE----------");
             System.out.println();
+            System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
+            System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
+            int mazeTypeChoice = sc.nextInt();
+            System.out.println();
             System.out.println("---Please enter number of rooms required in a MAZE---");
             int numberOfRooms = sc.nextInt();
             System.out.println();
 
-            System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
-            System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
-            int mazeTypeChoice = sc.nextInt();
-            MazeTypeFactoryInterface mazeGameFactoryObj = null;
-            MazeGame mazeGame = new MazeGame();
+            MazeTypeFactoryInterface mazeGameFactoryObj = null; // maze factory object
+            MazeGame mazeGame = new MazeGame();                 // client class which comes under main class.
             Maze maze = null;
             int doorType=0;
             int layOutChoice =0;
@@ -45,11 +52,7 @@ public class Main {
                     //get layout choice input from user
                     layOutChoice = getLayoutChoiceFromUser();
                     maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
-                    System.out.println("maze "+ maze );
-                    System.out.println("numnber of rooms in maze "+ maze.getRooms().size());
-                    System.out.println("number of doors in rooms 1 "+ maze.getRooms().get(0).get_door().size());
-                    //TimeUnit.SECONDS.sleep(30);
-                    printMaze(maze, numberOfRooms);
+                    DisplayTheMaze.printMaze(maze, numberOfRooms);
                     break;
                 case 2:
                     mazeGameFactoryObj = new MagicMazeFactory();
@@ -61,7 +64,7 @@ public class Main {
                     //get layout choice input from user
                     layOutChoice = getLayoutChoiceFromUser();
                     maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
-
+                    DisplayTheMaze.printMaze(maze, numberOfRooms);
                     break;
                 default:
                     System.out.println("You entered a wrong choice. Kindly try again");
@@ -78,7 +81,7 @@ public class Main {
 
     public static int getDoorTypeFromUser() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Door Types avalable for the Maze are");
+        System.out.println("Door Types available for the Maze are");
         System.out.println("1. Bomb Door   " + "   2. Enchanted Door  " + "3. Glass Door");
         String doorChoiceYN = "n";
         int doorChoice = 0;
@@ -101,27 +104,5 @@ public class Main {
        return sc.nextInt();
     }
 
-    public static void printMaze(Maze maze, int numberOfRooms) throws InterruptedException {
-        System.out.println("There are total of "+ (numberOfRooms*numberOfRooms) + " in the maze where maze size is "+ (numberOfRooms*numberOfRooms));
-        //printMaze(maze, numberOfRooms);
-        List<Room> room = maze.getRooms();
-        //System.out.println("rooms sizes "+ maze.getRooms().size()  + "   number of rooms "+ numberOfRooms);
-        //TimeUnit.SECONDS.sleep(30);
-        int m=1;
-        for(int i=0;i<room.size();){
-            for(int j=0;j<numberOfRooms;j++){
-                System.out.println("romm number "+ m);
-                m++;
-                Room r = room.get(i);
-                System.out.println("room has door s: ");
-                List<Door> d = r.get_door();
-                for(int k=0;k<d.size();k++){
-                    System.out.print(d.get(k).getDirection() + "    ");
-                }
-                i=i+numberOfRooms;
-                System.out.println();
-            }
-        }
 
-    }
 }

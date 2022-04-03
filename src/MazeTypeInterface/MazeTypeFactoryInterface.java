@@ -12,10 +12,11 @@ public interface MazeTypeFactoryInterface {
 
     List<Room> makeRoom(int numberOfRooms, int doorsLayout, MazeDoorInterface mazeDoorInterface);
 
-
     default Maze makeMaze(int numberOfRooms, MazeTypeFactoryInterface mazeTypeFactoryobj) {
-        return  new Maze().makeMaze(numberOfRooms);
-    };
+        return new Maze().makeMaze(numberOfRooms);
+    }
+
+    ;
 
 
 }

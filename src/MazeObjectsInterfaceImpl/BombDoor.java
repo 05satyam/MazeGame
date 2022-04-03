@@ -1,7 +1,6 @@
 package MazeObjectsInterfaceImpl;
 
 import MazeConcreteObjects.Door;
-import MazeDoorLayoutEnums.MazeDoorLayoutsEnum;
 import MazeObjectsInterface.MazeDoorInterface;
 
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ public class BombDoor extends  Door implements MazeDoorInterface{
 
     @Override
     public List<Door> createDoorLayoutForRoom(int doorsLayout,  boolean isEvenRowOddRoom) {
+        System.out.println("isEvenRowOddRooms in bomb door "+ isEvenRowOddRoom);
        List<Door> _dList = new ArrayList<>();
         Door _d1 = new Door();
         Door _d2 = new Door();

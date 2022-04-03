@@ -1,7 +1,5 @@
 package MazeConcreteObjects;
 
-import MazeDoorLayoutEnums.MazeDoorLayoutsEnum;
-
 public class Door {
     String direction;
 

@@ -17,9 +17,13 @@ public class EnchantedMazeRoom extends Room implements MazeRoomInterface {
         for (int i = 0; i < numberOfRooms ; i++) {
             for(int j=0;j<numberOfRooms;j++) {
                 Room _r = new EnchantedMazeRoom();
-                if(i%2==0 && j%2!=0)
+                if(i%2==0 && j%2==0)
+                    continue;
+
+                if((i%2==0) && (j%2!=0))
                     isEvenRowOddRooms=true;
                 else isEvenRowOddRooms=false;
+                System.out.println("isEvenRowOddRooms "+ isEvenRowOddRooms);
                 _r.set_door(mazeDoorInterfaceObj.createDoorLayoutForRoom(doorsLayout, isEvenRowOddRooms));
                 _rLst.add(_r);
             }
