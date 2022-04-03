@@ -5,7 +5,7 @@ import MazeObjectsInterface.MazeDoorInterface;
 
 import java.util.List;
 
-public class EnchantedDoor implements MazeDoorInterface {
+public class EnchantedDoor extends Door implements MazeDoorInterface {
     @Override
     public List<Door> createDoor() {
         return null;

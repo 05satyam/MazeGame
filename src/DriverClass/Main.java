@@ -8,6 +8,8 @@ import MazeTypeInterfaceImpl.MagicMazeFactory;
 import java.util.Scanner;
 
 public class Main {
+
+
     public static void main(String[] arg) {
         Scanner sc = new Scanner(System.in);
         String choiceToContinue = "N";
@@ -22,27 +24,60 @@ public class Main {
             System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
             System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
             int mazeTypeChoice = sc.nextInt();
-            MazeTypeFactoryInterface mazeGameFactoryObj =null;
+            MazeTypeFactoryInterface mazeGameFactoryObj = null;
             MazeGame mazeGame = new MazeGame();
-            Maze maze =null;
+            Maze maze = null;
+            int doorType=0;
             switch (mazeTypeChoice) {
                 case 1:
                     mazeGameFactoryObj = new EnchantedMazeFactory();
-                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj);
+                    doorType  = getDoorTypeFromUser();
+                    if(doorType==-1){
+                        System.out.println("Entered door choice is not correct. ERROR");
+                        break;
+                    }
+                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType);
+
                     break;
                 case 2:
                     mazeGameFactoryObj = new MagicMazeFactory();
-                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj);
+                    doorType  = getDoorTypeFromUser();
+                    if(doorType==-1){
+                        System.out.println("Entered door choice is not correct. ERROR");
+                        break;
+                    }
+
+                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType);
+
                     break;
                 default:
                     System.out.println("You entered a wrong choice. Kindly try again");
             }
             System.out.println();
-            System.out.println("Do you want to continue (Y/N)???");
+            System.out.println("Do you want to continue again (Y/N)???");
             choiceToContinue = sc.next();
-        }while("Y".equalsIgnoreCase(choiceToContinue));
+        } while ("Y".equalsIgnoreCase(choiceToContinue));
 
         System.out.println();
         System.out.println("         EXITING THE GAME. GOOD BYE!!!        ");
+    }
+
+
+    public static int getDoorTypeFromUser() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Door Types avalable for the Maze are");
+        System.out.print("1. Bomb Door   " + "   2. Enchanted Door  " + "3. Glass Door");
+        String doorChoiceYN = "n";
+        int doorChoice = 0;
+        do {
+            System.out.println("Enter the choice from 1 to 3");
+            doorChoice = sc.nextInt();
+            if (doorChoice > 3 || doorChoice < 1) {
+                System.out.println("Invalid Selection!! Do You want to make another choice (Y/N)?");
+                doorChoiceYN = sc.next();
+            }
+        } while ("Y".equalsIgnoreCase(doorChoiceYN));
+
+        return (!"Y".equalsIgnoreCase(doorChoiceYN) || (3 < doorChoice || doorChoice < 1)) ? -1 : doorChoice;
     }
 }
