@@ -42,7 +42,7 @@ public class Main {
             int layOutChoice =0;
             switch (mazeTypeChoice) {
                 case 1:
-                    mazeGameFactoryObj = new EnchantedMazeFactory();
+                    mazeGameFactoryObj = EnchantedMazeFactory.getMazeFactorySingletonInstance(); //singleton
                     doorType  = getDoorTypeFromUser();
                     if(doorType==-1){
                         System.out.println("Entered door choice is not correct. ERROR");
@@ -55,7 +55,7 @@ public class Main {
                     DisplayTheMaze.printMaze(maze, numberOfRooms);
                     break;
                 case 2:
-                    mazeGameFactoryObj = new MagicMazeFactory();
+                    mazeGameFactoryObj = MagicMazeFactory.getMazeFactorySingletonInstance(); //singleton
                     doorType  = getDoorTypeFromUser();
                     if(doorType==-1){
                         System.out.println("Entered door choice is not correct. ERROR");

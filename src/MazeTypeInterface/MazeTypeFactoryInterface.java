@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface MazeTypeFactoryInterface {
 
+
     /**+
      *
      * @param numberOfRooms

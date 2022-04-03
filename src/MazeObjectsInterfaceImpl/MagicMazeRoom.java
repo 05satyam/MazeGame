@@ -3,12 +3,14 @@ package MazeObjectsInterfaceImpl;
 import MazeConcreteObjects.Room;
 import MazeObjectsInterface.MazeDoorInterface;
 import MazeObjectsInterface.MazeRoomInterface;
+import MazeTypeInterface.MazeTypeFactoryInterface;
 import MazeTypeInterfaceImpl.EnchantedMazeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MagicMazeRoom extends Room implements MazeRoomInterface {
+
 
     /**+
      *
@@ -22,15 +24,22 @@ public class MagicMazeRoom extends Room implements MazeRoomInterface {
      */
    @Override
     public List<Room> createNumberOfRoomsInMaze(int numberOfRooms, int doorsLayout,  MazeDoorInterface mazeDoorInterfaceObj) {
-       List<Room> _rLst = new ArrayList<>();
+       List<Room> _rLst = new ArrayList<>((numberOfRooms*numberOfRooms));
+       System.out.println("inside make room of enchanted maze");
        boolean isEvenRowOddRooms=false;
        for (int i = 0; i < numberOfRooms ; i++) {
            for(int j=0;j<numberOfRooms;j++) {
                Room _r = new EnchantedMazeRoom();
-               if(i%2==0 && j%2!=0)
+               //skip if (row is even and room is even) || (row is odd and room is odd)
+               if(i%2==0 && j%2==0)
+                   continue;
+
+               //else contiue for all other configuration
+               if((i%2==0) && (j%2!=0))
                    isEvenRowOddRooms=true;
                else isEvenRowOddRooms=false;
-               _r.set_door(mazeDoorInterfaceObj.createDoorLayoutForRoom(doorsLayout, isEvenRowOddRooms));
+               //System.out.println("isEvenRowOddRooms "+ isEvenRowOddRooms);
+               _r.set_door(mazeDoorInterfaceObj.createDoorLayoutForRoom(doorsLayout, isEvenRowOddRooms, _rLst, numberOfRooms));
                _rLst.add(_r);
            }
        }

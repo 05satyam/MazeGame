@@ -1,6 +1,7 @@
 package MazeObjectsInterface;
 
 import MazeConcreteObjects.Door;
+import MazeConcreteObjects.Room;
 import MazeMapeSiteBaseInterface.MapSiteBaseInterfaceClass;
 import MazeObjectsInterfaceImpl.BombDoor;
 import MazeObjectsInterfaceImpl.EnchantedDoor;
@@ -35,5 +36,5 @@ public interface MazeDoorInterface extends MapSiteBaseInterfaceClass {
      *
      * @return
      */
-    public List<Door> createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom);
+    public List<Door> createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms);
 }

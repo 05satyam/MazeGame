@@ -1,6 +1,7 @@
 package MazeObjectsInterfaceImpl;
 
 import MazeConcreteObjects.Door;
+import MazeConcreteObjects.Room;
 import MazeObjectsInterface.MazeDoorInterface;
 
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ public class EnchantedDoor extends Door implements MazeDoorInterface {
      * this method is creating a list of doors for a room and returning the list.
      */
     @Override
-    public List<Door> createDoorLayoutForRoom(int doorsLayout,  boolean isEvenRowOddRoom) {
+    public List<Door> createDoorLayoutForRoom(int doorsLayout,  boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms) {
+        System.out.println("isEvenRowOddRooms in bomb door "+ isEvenRowOddRoom);
         List<Door> _dList = new ArrayList<>();
         Door _d1 = new Door();
         Door _d2 = new Door();

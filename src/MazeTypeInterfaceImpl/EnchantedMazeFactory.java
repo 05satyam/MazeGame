@@ -13,6 +13,24 @@ import java.util.List;
  */
 public class EnchantedMazeFactory implements MazeTypeFactoryInterface {
 
+
+    private static EnchantedMazeFactory singletonInstance = null;
+    private EnchantedMazeFactory(){ }
+
+    /**+
+     *
+     * @return
+     *
+     * implementing singleton
+     */
+    public static MazeTypeFactoryInterface getMazeFactorySingletonInstance() {
+        if (singletonInstance == null) {
+            EnchantedMazeFactory.singletonInstance = new EnchantedMazeFactory();
+        }
+        return EnchantedMazeFactory.singletonInstance;
+    }
+
+
     /**+
      *
      * @param numberOfRooms

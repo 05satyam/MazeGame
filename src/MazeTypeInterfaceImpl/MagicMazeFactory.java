@@ -2,7 +2,6 @@ package MazeTypeInterfaceImpl;
 
 import MazeConcreteObjects.Room;
 import MazeObjectsInterface.MazeDoorInterface;
-import MazeObjectsInterface.MazeRoomInterface;
 import MazeObjectsInterfaceImpl.MagicMazeRoom;
 import MazeTypeInterface.MazeTypeFactoryInterface;
 
@@ -12,6 +11,19 @@ import java.util.List;
  * concrete implementation for maze type factory
  */
 public class MagicMazeFactory implements MazeTypeFactoryInterface {
+
+
+    private static MagicMazeFactory singletonInstance = null;
+    private MagicMazeFactory(){ }
+
+    public static MazeTypeFactoryInterface getMazeFactorySingletonInstance() {
+        if (singletonInstance == null) {
+            MagicMazeFactory.singletonInstance = new MagicMazeFactory();
+        }
+        return MagicMazeFactory.singletonInstance;
+    }
+
+
 
     /**+
      *
