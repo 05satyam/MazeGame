@@ -8,11 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BombDoor extends  Door implements MazeDoorInterface{
-    @Override
-    public List<Door> createDoor(int layout) {
 
-        return null;
-    }
 
     @Override
     public List<Door> createDoorLayoutForRoom(int doorsLayout,  boolean isEvenRowOddRoom) {

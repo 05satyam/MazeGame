@@ -9,7 +9,6 @@ import MazeObjectsInterfaceImpl.GlassDoor;
 import java.util.List;
 
 public interface MazeDoorInterface extends MapSiteBaseInterfaceClass {
-    public List<Door> createDoor( int layout);
 
     static MazeDoorInterface getDoorInterfaceFromDoorChoice(String doorTypeName){
         switch (doorTypeName){
