@@ -17,10 +17,10 @@ public class MazeGame {
 
     /**
      *
-     * @param numberOfRooms
-     * @param mazefactoryObj
-     * @param doorType
-     * @param layout
+     * @param numberOfRooms   : it tells the number of rooms entered by the user.
+     * @param mazefactoryObj  : this is the maze factory object
+     * @param doorType        : it tells the door type selected by user like bombdoor, glass door etc.
+     * @param layout          : it tells the type of layout selected by the user like Layout1 or layout 2.
      * @return
      *
      * Method to create crateMaze; it is creating maze with rooms in it and rooms are creating doors in it.
@@ -35,8 +35,8 @@ public class MazeGame {
     }
 
     /**
-     * @param doorType
-     * @param layout
+     * @param doorType  : it tells the type of door selected by the user.
+     * @param layout    : it tells the type of layout selected by the user like Layout1 or layout 2.
      * @return
      *
      * This is a helper method to get the class obejct for different doors we have.

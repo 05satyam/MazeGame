@@ -5,6 +5,11 @@ import MazeObjectsInterface.MazeRoomInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+/**+
+ *
+ * MAZE class. It is the main MAZE class with doors list in it.
+ * It is kind of DAO class
+ */
 public class Maze {
 
     List<List<Integer>> mazeMatrix;

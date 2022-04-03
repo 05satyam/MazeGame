@@ -1,5 +1,11 @@
 package MazeConcreteObjects;
 
+/**+
+ *
+ * it is DOOR class. Consist of direction for each door.
+ * List doors are stored in room class.
+ *
+ */
 public class Door {
     String direction;
 

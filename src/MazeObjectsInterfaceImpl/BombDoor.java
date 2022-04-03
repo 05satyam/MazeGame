@@ -8,7 +8,14 @@ import java.util.List;
 
 public class BombDoor extends  Door implements MazeDoorInterface{
 
-
+    /**+
+     *
+     * @param doorsLayout     : what is the layout of doors : layout 1 or layoyt 2
+     * @param isEvenRowOddRoom : this parameter is for deciding between even row odd room or odd row even room
+     * @return
+     *
+     * this method is creating a list of doors for a room and returning the list.
+     */
     @Override
     public List<Door> createDoorLayoutForRoom(int doorsLayout,  boolean isEvenRowOddRoom) {
         System.out.println("isEvenRowOddRooms in bomb door "+ isEvenRowOddRoom);

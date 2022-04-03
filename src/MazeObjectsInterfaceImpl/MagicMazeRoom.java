@@ -10,7 +10,16 @@ import java.util.List;
 
 public class MagicMazeRoom extends Room implements MazeRoomInterface {
 
-
+    /**+
+     *
+     * @param numberOfRooms    :  number of rooms in the maze
+     * @param doorsLayout      :  what layput is required by user:  Layout1 or Layout 2. as per documentations
+     * @param mazeDoorInterfaceObj : door interface object which consist of runtime child object.
+     * @return
+     *
+     * this method will create number of rooms in the maze.
+     * Also this method is assigning doors to the each room depending on the layoyt choosen by the client.
+     */
    @Override
     public List<Room> createNumberOfRoomsInMaze(int numberOfRooms, int doorsLayout,  MazeDoorInterface mazeDoorInterfaceObj) {
        List<Room> _rLst = new ArrayList<>();

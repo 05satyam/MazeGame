@@ -79,6 +79,10 @@ public class Main {
     }
 
 
+    /**+
+     *
+     * @return
+     */
     public static int getDoorTypeFromUser() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Door Types available for the Maze are");
