@@ -45,8 +45,13 @@ public class EnchantedDoor extends Door implements MazeDoorInterface {
     }
 
 
-    //setting layout 1 door
-
+    /**+
+     *
+     * @param currentRoomNumber  : tells about current room number of maze
+     * @param _rLst              : room list in the maze
+     *
+     *    This method is setting layout1 for the door in a room
+     */
     public void setLayout1Doors(int currentRoomNumber, List<Room> _rLst) {
         List<Door> doorsALreadyPresentInRoom = null;
         if (_rLst.get(currentRoomNumber) == null)
@@ -68,7 +73,16 @@ public class EnchantedDoor extends Door implements MazeDoorInterface {
         _rLst.get(currentRoomNumber).set_door(doorsALreadyPresentInRoom);
     }
 
-    //setting layout 2 rooms
+    /**+
+     *
+     * @param doorsALreadyPresentInRoom   : gives us the doors already initialized in the maze with doors
+     * @param currentRoomNumber          : gives  current room number in which door need to created
+     * @param numberOfRooms              : tells about the number of rooms
+     * @param _rLst                      : room list from maze
+     * @param isEvenRowOddRoom           : tells if layout two even row odd room or odd row even room
+     *
+     *      This method is setting layout1 for the door in a room
+     */
     public void setLayout2Doors( List<Door> doorsALreadyPresentInRoom, int currentRoomNumber, int numberOfRooms, List<Room> _rLst, boolean isEvenRowOddRoom){
         Door _d1 = new Door();
         Door _d2 = new Door();

@@ -7,10 +7,12 @@ import MazeObjectsInterface.MazeDoorInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlassDoor extends  Door implements MazeDoorInterface {
+public class GlassDoor extends Door implements MazeDoorInterface {
 
     private static GlassDoor singletonInstance = null;
-    private GlassDoor(){ }
+
+    private GlassDoor() {
+    }
 
     public static GlassDoor getGlassDoorFactorySingletonInstance() {
         if (singletonInstance == null) {
@@ -19,12 +21,12 @@ public class GlassDoor extends  Door implements MazeDoorInterface {
         return GlassDoor.singletonInstance;
     }
 
-    /**+
+    /**
+     * +
      *
-     * @param doorsLayout     : what is the layout of doors : layout 1 or layoyt 2
+     * @param doorsLayout      : what is the layout of doors : layout 1 or layoyt 2
      * @param isEvenRowOddRoom : this parameter is for deciding between even row odd room or odd row even room
-     * @return
-     * this method is creating a list of doors for a room and returning the list.
+     * @return this method is creating a list of doors for a room and returning the list.
      */
     @Override
     public void createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms, int currentRoomNumber) {
@@ -39,13 +41,18 @@ public class GlassDoor extends  Door implements MazeDoorInterface {
             setLayout1Doors(currentRoomNumber, _rLst);
 
         } else if (doorsLayout == 2) {
-            setLayout2Doors(doorsALreadyPresentInRoom, currentRoomNumber, numberOfRooms , _rLst, isEvenRowOddRoom);
+            setLayout2Doors(doorsALreadyPresentInRoom, currentRoomNumber, numberOfRooms, _rLst, isEvenRowOddRoom);
         }
     }
 
-
-    //setting layout 1 door
-
+    /**
+     * +
+     *
+     * @param currentRoomNumber : tells about current room number of maze
+     * @param _rLst             : room list in the maze
+     *                          <p>
+     *                          This method is setting layout1 for the door in a room
+     */
     public void setLayout1Doors(int currentRoomNumber, List<Room> _rLst) {
         List<Door> doorsALreadyPresentInRoom = null;
         if (_rLst.get(currentRoomNumber) == null)
@@ -67,8 +74,18 @@ public class GlassDoor extends  Door implements MazeDoorInterface {
         _rLst.get(currentRoomNumber).set_door(doorsALreadyPresentInRoom);
     }
 
-    //setting layout 2 rooms
-    public void setLayout2Doors( List<Door> doorsALreadyPresentInRoom, int currentRoomNumber, int numberOfRooms, List<Room> _rLst, boolean isEvenRowOddRoom){
+    /**
+     * +
+     *
+     * @param doorsALreadyPresentInRoom : gives us the doors already initialized in the maze with doors
+     * @param currentRoomNumber         : gives  current room number in which door need to created
+     * @param numberOfRooms             : tells about the number of rooms
+     * @param _rLst                     : room list from maze
+     * @param isEvenRowOddRoom          : tells if layout two even row odd room or odd row even room
+     *                                  <p>
+     *                                  This method is setting layout1 for the door in a room
+     */
+    public void setLayout2Doors(List<Door> doorsALreadyPresentInRoom, int currentRoomNumber, int numberOfRooms, List<Room> _rLst, boolean isEvenRowOddRoom) {
         Door _d1 = new Door();
         Door _d2 = new Door();
         Door _d3 = new Door();

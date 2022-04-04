@@ -32,9 +32,7 @@ public class BombDoor extends Door implements MazeDoorInterface {
      */
     @Override
     public void createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms, int currentRoomNumber) {
-        System.out.println("isEvenRowOddRooms in bomb door " + isEvenRowOddRoom + "  room list size " + _rLst.size() + "  current room number " + currentRoomNumber);
         System.out.println();
-        System.out.println("gettinf current room " + _rLst.get(currentRoomNumber));
         List<Door> doorsALreadyPresentInRoom = _rLst.get(currentRoomNumber).get_door();
         if (_rLst.get(currentRoomNumber) == null)
             _rLst.set(currentRoomNumber, new Room());
@@ -43,13 +41,19 @@ public class BombDoor extends Door implements MazeDoorInterface {
             setLayout1Doors(currentRoomNumber, _rLst);
 
         } else if (doorsLayout == 2) {
-            setLayout2Doors(doorsALreadyPresentInRoom, currentRoomNumber, numberOfRooms , _rLst, isEvenRowOddRoom);
+            setLayout2Doors(doorsALreadyPresentInRoom, currentRoomNumber, numberOfRooms, _rLst, isEvenRowOddRoom);
         }
     }
 
 
-    //setting layout 1 door
-
+    /**
+     * +
+     *
+     * @param currentRoomNumber : tells about current room number of maze
+     * @param _rLst             : room list in the maze
+     *                          <p>
+     *                          This method is setting layout1 for the door in a room
+     */
     public void setLayout1Doors(int currentRoomNumber, List<Room> _rLst) {
         List<Door> doorsALreadyPresentInRoom = null;
         if (_rLst.get(currentRoomNumber) == null)
@@ -71,8 +75,19 @@ public class BombDoor extends Door implements MazeDoorInterface {
         _rLst.get(currentRoomNumber).set_door(doorsALreadyPresentInRoom);
     }
 
-    //setting layout 2 rooms
-    public void setLayout2Doors( List<Door> doorsALreadyPresentInRoom, int currentRoomNumber, int numberOfRooms, List<Room> _rLst, boolean isEvenRowOddRoom){
+
+    /**
+     * +
+     *
+     * @param doorsALreadyPresentInRoom : gives us the doors already initialized in the maze with doors
+     * @param currentRoomNumber         : gives  current room number in which door need to created
+     * @param numberOfRooms             : tells about the number of rooms
+     * @param _rLst                     : room list from maze
+     * @param isEvenRowOddRoom          : tells if layout two even row odd room or odd row even room
+     *                                  <p>
+     *                                  This method is setting layout1 for the door in a room
+     */
+    public void setLayout2Doors(List<Door> doorsALreadyPresentInRoom, int currentRoomNumber, int numberOfRooms, List<Room> _rLst, boolean isEvenRowOddRoom) {
         Door _d1 = new Door();
         Door _d2 = new Door();
         Door _d3 = new Door();

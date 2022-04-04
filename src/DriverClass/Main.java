@@ -87,6 +87,8 @@ public class Main {
     /**+
      *
      * @return
+     *
+     * return the door type selected by user either bomb door, glass door, enchanted door
      */
     public static int getDoorTypeFromUser() {
         Scanner sc = new Scanner(System.in);
@@ -107,6 +109,12 @@ public class Main {
         return (3 < doorChoice || doorChoice < 1)? -1 : doorChoice;
     }
 
+    /**+
+     *
+     * @return
+     *
+     * takes input from user about the layout which needs to be used in the maze
+     */
     public static int getLayoutChoiceFromUser(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Maze layouts are  (1/2)");

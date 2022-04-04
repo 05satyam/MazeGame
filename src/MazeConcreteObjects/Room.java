@@ -8,9 +8,10 @@ import java.util.List;
  * For Layout 1 we will be assigning doors in random fashinm
  * */
 
-/**+
+/**
+ * +
  * It is a ROOM class for the maze. It consist of parameters required for the room and it is a concrete object
- *
+ * <p>
  * Room has list of doors which means number and type of doors in which direction room have.
  * It is kind of DAO class
  */

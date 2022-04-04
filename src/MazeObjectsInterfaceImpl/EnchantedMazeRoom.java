@@ -12,8 +12,15 @@ import java.util.List;
 public class EnchantedMazeRoom extends Room implements MazeRoomInterface {
 
     private static EnchantedMazeRoom singletonInstance = null;
-    private EnchantedMazeRoom(){ }
 
+    private EnchantedMazeRoom() {
+    }
+
+    /**
+     * +
+     *
+     * @return returning singleton instance for the class
+     */
     public static EnchantedMazeRoom getEnchantedRoomFactorySingletonInstance() {
         if (singletonInstance == null) {
             EnchantedMazeRoom.singletonInstance = new EnchantedMazeRoom();
@@ -21,31 +28,30 @@ public class EnchantedMazeRoom extends Room implements MazeRoomInterface {
         return EnchantedMazeRoom.singletonInstance;
     }
 
-    /**+
+    /**
+     * +
      *
-     * @param numberOfRooms    :  number of rooms in the maze
-     * @param doorsLayout      :  what layput is required by user:  Layout1 or Layout 2. as per documentations
+     * @param numberOfRooms        :  number of rooms in the maze
+     * @param doorsLayout          :  what layput is required by user:  Layout1 or Layout 2. as per documentations
      * @param mazeDoorInterfaceObj : door interface object which consist of runtime child object.
-     * @return
-     *
-     * this method will create number of rooms in the maze.
+     * @return this method will create number of rooms in the maze.
      * Also this method is assigning doors to the each room depending on the layoyt choosen by the client.
      */
 
     @Override
     public List<Room> createNumberOfRoomsInMaze(int numberOfRooms, int doorsLayout, MazeDoorInterface mazeDoorInterfaceObj) {
-        List<Room> _rLst =  new ArrayList<>();
-        for(int ii=0;ii<numberOfRooms*numberOfRooms;ii++){
+        List<Room> _rLst = new ArrayList<>();
+        for (int ii = 0; ii < numberOfRooms * numberOfRooms; ii++) {
             _rLst.add(new Room());
         }
-        System.out.println("inside make room of enchanted maze "+ _rLst.size());
-        boolean isEvenRowOddRooms=false;
-        int currentRoomNo=0;
-        for (int i = 0; i < numberOfRooms ; i++) {
-            for(int j=0;j<numberOfRooms;j++) {
+        System.out.println("inside make room of enchanted maze " + _rLst.size());
+        boolean isEvenRowOddRooms = false;
+        int currentRoomNo = 0;
+        for (int i = 0; i < numberOfRooms; i++) {
+            for (int j = 0; j < numberOfRooms; j++) {
                 Room _r = EnchantedMazeRoom.getEnchantedRoomFactorySingletonInstance();
                 //skip if (row is even and room is even) || (row is odd and room is odd)
-                if(doorsLayout==2) { // only required for layout 2
+                if (doorsLayout == 2) { // only required for layout 2
                     if (i % 2 == 0 && j % 2 == 0) {
                         currentRoomNo++;
                         continue;

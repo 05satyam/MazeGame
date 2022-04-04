@@ -2,10 +2,11 @@ package MazeDoorLayoutEnums;
 
 import java.util.Arrays;
 
-/**+
+/**
+ * +
  * it is an enum class for getting the door type objects depending on the user input and it will return the class object
  * as reduce if-else in the code
- *
+ * <p>
  * we can add as many doors as needed and there wont be any need of if-else in the main code
  */
 public enum DoorTypeToUserChoiceEnum {
