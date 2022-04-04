@@ -28,6 +28,7 @@ public class Main {
                 System.out.println();
                 System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
                 System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
+
                 int mazeTypeChoice = sc.nextInt();
                 System.out.println();
                 System.out.println("---Please enter number of rooms required in a MAZE---");
@@ -108,9 +109,14 @@ public class Main {
 
     public static int getLayoutChoiceFromUser(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your choice for maze layout (1/2)");
+        System.out.println("Maze layouts are  (1/2)");
+        DisplayTheMaze.mazeLayouts();
+        System.out.println();
+        System.out.println("Please enter your choice for layout ");
        return sc.nextInt();
     }
+
+
 
 
 }

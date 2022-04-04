@@ -43,4 +43,29 @@ public class DisplayTheMaze {
         System.out.println("THANK YOU FOR USING OUR LAYOUT");
 
     }
+
+    /**+
+     * method for printing maze sample layout for user to understand to give proper input
+     */
+    public static void mazeLayouts(){
+        System.out.println("LAYOUT 1 for 2X2 matrix");
+        System.out.println("The first layout has all 4 doors in each room.");
+
+        System.out.println("    N        N");
+        System.out.println(" E     W          W");
+        System.out.println("    S        S");
+        System.out.println(" E     W          W");
+        System.out.println("    S        S");
+
+        System.out.println("LAYOUT 2 for 2X2 matrix" );
+        System.out.println(" For each even row, each odd Room has NORTH and SOUTH doors.");
+        System.out.println("For each odd row, each even Room has WEST and EAST doors");
+        System.out.println("");
+        System.out.println("    -        N");
+        System.out.println(" -     -          -");
+        System.out.println("    -        S");
+        System.out.println(" E     W         -");
+        System.out.println("    -        -");
+
+    }
 }
