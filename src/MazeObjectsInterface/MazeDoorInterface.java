@@ -20,9 +20,9 @@ public interface MazeDoorInterface extends MapSiteBaseInterfaceClass {
      */
     static MazeDoorInterface getDoorInterfaceFromDoorChoice(String doorTypeName){
         switch (doorTypeName){
-            case "BombDoor" : return new BombDoor();
-            case "EnchantedDoor" : return new EnchantedDoor();
-            case "GlassDoor"  : return new GlassDoor();
+            case "BombDoor" : return BombDoor.getBombDoorFactorySingletonInstance();
+            case "EnchantedDoor" : return EnchantedDoor.getEnchantedDoorFactorySingletonInstance();
+            case "GlassDoor"  : return GlassDoor.getGlassDoorFactorySingletonInstance();
             default:
                 break;
         }
@@ -36,5 +36,5 @@ public interface MazeDoorInterface extends MapSiteBaseInterfaceClass {
      *
      * @return
      */
-    public List<Door> createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms);
+    public void  createDoorLayoutForRoom(int doorsLayout, boolean isEvenRowOddRoom, List<Room> _rLst, int numberOfRooms, int currentRoomNumber);
 }

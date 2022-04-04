@@ -18,7 +18,9 @@ public class Room {
 
     List<Door> _door;
 
-    public Room() {}
+    public Room() {
+        _door = new ArrayList<>();
+    }
 
     public List<Door> get_door() {
         return _door;

@@ -36,7 +36,8 @@ public class MagicMazeFactory implements MazeTypeFactoryInterface {
      */
     @Override
     public List<Room> makeRoom(int numberOfRooms, int doorsLayout, MazeDoorInterface mazeDoorInterface) {
-        return new MagicMazeRoom().createNumberOfRoomsInMaze(numberOfRooms, doorsLayout, mazeDoorInterface);
+        return MagicMazeRoom.getMagicMazeRoomFactorySingletonInstance()
+                .createNumberOfRoomsInMaze(numberOfRooms, doorsLayout, mazeDoorInterface);
     }
 
 }

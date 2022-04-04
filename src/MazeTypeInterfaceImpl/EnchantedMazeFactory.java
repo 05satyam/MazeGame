@@ -42,7 +42,7 @@ public class EnchantedMazeFactory implements MazeTypeFactoryInterface {
      */
     @Override
     public List<Room> makeRoom(int numberOfRooms, int doorsLayout, MazeDoorInterface mazeDoorInterface) {
-        return new EnchantedMazeRoom().createNumberOfRoomsInMaze(numberOfRooms, doorsLayout, mazeDoorInterface);
+        return EnchantedMazeRoom.getEnchantedRoomFactorySingletonInstance().createNumberOfRoomsInMaze(numberOfRooms, doorsLayout, mazeDoorInterface);
     }
 
 

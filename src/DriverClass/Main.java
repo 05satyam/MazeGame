@@ -7,8 +7,6 @@ import MazeConcreteObjects.Room;
 import MazeTypeInterface.MazeTypeFactoryInterface;
 import MazeTypeInterfaceImpl.EnchantedMazeFactory;
 import MazeTypeInterfaceImpl.MagicMazeFactory;
-
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -21,61 +19,67 @@ public class Main {
      * it is the driver main method which is the entry point of the maze game
      */
     public static void main(String[] arg) throws InterruptedException {
-        Scanner sc = new Scanner(System.in);
-        String choiceToContinue = "N";
-        do {
-            System.out.flush();
-            System.out.println("---------WELCOME TO THE MAZE----------");
-            System.out.println();
-            System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
-            System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
-            int mazeTypeChoice = sc.nextInt();
-            System.out.println();
-            System.out.println("---Please enter number of rooms required in a MAZE---");
-            int numberOfRooms = sc.nextInt();
-            System.out.println();
+        try {
+            Scanner sc = new Scanner(System.in);
+            String choiceToContinue = "N";
+            do {
+                System.out.flush();
+                System.out.println("---------WELCOME TO THE MAZE----------");
+                System.out.println();
+                System.out.println("---We have two types of maze. Kindly select the maze type by entering choice (1 or 2)---");
+                System.out.println("1. Enchanted Maze" + "   " + "2. Magic Maze");
+                int mazeTypeChoice = sc.nextInt();
+                System.out.println();
+                System.out.println("---Please enter number of rooms required in a MAZE---");
+                int numberOfRooms = sc.nextInt();
+                System.out.println();
 
-            MazeTypeFactoryInterface mazeGameFactoryObj = null; // maze factory object
-            MazeGame mazeGame = new MazeGame();                 // client class which comes under main class.
-            Maze maze = null;
-            int doorType=0;
-            int layOutChoice =0;
-            switch (mazeTypeChoice) {
-                case 1:
-                    mazeGameFactoryObj = EnchantedMazeFactory.getMazeFactorySingletonInstance(); //singleton
-                    doorType  = getDoorTypeFromUser();
-                    if(doorType==-1){
-                        System.out.println("Entered door choice is not correct. ERROR");
+                MazeTypeFactoryInterface mazeGameFactoryObj = null; // maze factory object
+                MazeGame mazeGame = new MazeGame();                 // client class which comes under main class.
+                Maze maze = null;
+                int doorType = 0;
+                int layOutChoice = 0;
+                switch (mazeTypeChoice) {
+                    case 1:
+                        mazeGameFactoryObj = EnchantedMazeFactory.getMazeFactorySingletonInstance();
+                        doorType = getDoorTypeFromUser();
+                        if (doorType == -1) {
+                            System.out.println("Entered door choice is not correct. ERROR");
+                            break;
+                        }
+
+                        //get layout choice input from user
+                        layOutChoice = getLayoutChoiceFromUser();
+                        maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
+                        DisplayTheMaze.printMaze(maze, numberOfRooms);
                         break;
-                    }
-
-                    //get layout choice input from user
-                    layOutChoice = getLayoutChoiceFromUser();
-                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
-                    DisplayTheMaze.printMaze(maze, numberOfRooms);
-                    break;
-                case 2:
-                    mazeGameFactoryObj = MagicMazeFactory.getMazeFactorySingletonInstance(); //singleton
-                    doorType  = getDoorTypeFromUser();
-                    if(doorType==-1){
-                        System.out.println("Entered door choice is not correct. ERROR");
+                    case 2:
+                        mazeGameFactoryObj = MagicMazeFactory.getMazeFactorySingletonInstance(); //singleton
+                        doorType = getDoorTypeFromUser();
+                        if (doorType == -1) {
+                            System.out.println("Entered door choice is not correct. ERROR");
+                            break;
+                        }
+                        //get layout choice input from user
+                        layOutChoice = getLayoutChoiceFromUser();
+                        maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
+                        DisplayTheMaze.printMaze(maze, numberOfRooms);
                         break;
-                    }
-                    //get layout choice input from user
-                    layOutChoice = getLayoutChoiceFromUser();
-                    maze = mazeGame.createMaze(numberOfRooms, mazeGameFactoryObj, doorType, layOutChoice);
-                    DisplayTheMaze.printMaze(maze, numberOfRooms);
-                    break;
-                default:
-                    System.out.println("You entered a wrong choice. Kindly try again");
-            }
-            System.out.println();
-            System.out.println("Do you want to continue again (Y/N)???");
-            choiceToContinue = sc.next();
-        } while ("Y".equalsIgnoreCase(choiceToContinue));
+                    default:
+                        System.out.println("You entered a wrong choice. Kindly try again");
+                }
+                System.out.println();
+                System.out.println("Do you want to continue again (Y/N)???");
+                choiceToContinue = sc.next();
+            } while ("Y".equalsIgnoreCase(choiceToContinue));
 
-        System.out.println();
-        System.out.println("         EXITING THE GAME. GOOD BYE!!!        ");
+            System.out.println();
+            System.out.println("         EXITING THE GAME. GOOD BYE!!!        ");
+        }catch(Exception e){
+            System.out.println("UNEXPECTED FAILURE OCCUR. KINDLY TRY AGAIN OR REPORT TO satyam05@mail.fresnostate");
+            System.out.println("---------------------THANK YOU---------------------");
+            return;
+        }
     }
 
 
